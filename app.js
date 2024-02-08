@@ -8,6 +8,8 @@ require("dotenv").config();
 // connectDb()
 
 //middleware
+const notFound = require("./middleware/not-found");
+app.use(notFound);
 app.use(express.json());
 app.use(express.static("./public"));
 //routes
