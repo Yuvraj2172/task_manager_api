@@ -9,11 +9,13 @@ require("dotenv").config();
 
 //middleware
 const notFound = require("./middleware/not-found");
-app.use(notFound);
+const errrorHandler = require("./middleware/error-handler");
 app.use(express.json());
 app.use(express.static("./public"));
 //routes
 app.use("/api/v1/tasks", tasks);
+app.use(notFound);
+app.use(errrorHandler);
 
 // app.get('/api/v1/tasks'); get all the tasks
 // app.post('/api/v1/tasks'); create a new task
